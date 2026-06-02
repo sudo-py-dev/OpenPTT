@@ -1,0 +1,32 @@
+# Rust
+server/target/
+**/*.rs.bk
+
+# Android
+android/.gradle/
+android/build/
+android/app/build/
+android/app/release/
+android/local.properties
+android/*.iml
+android/.idea/
+android/captures/
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Environment
+.env
+*.pem
+*.key
+
+# Docker
+docker-data/
