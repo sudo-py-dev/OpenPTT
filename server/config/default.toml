@@ -1,0 +1,25 @@
+[server]
+http_host = "0.0.0.0"
+http_port = 8443
+udp_port = 9000
+# tls_cert = "certs/cert.pem"
+# tls_key = "certs/key.pem"
+
+[database]
+url = "postgres://openptt:openptt_secret@localhost:5432/openptt"
+max_connections = 20
+
+[redis]
+url = "redis://localhost:6379"
+
+[auth]
+access_token_ttl_secs = 900
+refresh_token_ttl_secs = 604800
+# For development: using HMAC. In production, use RS256 with key files.
+jwt_secret = "dev-secret-change-in-production-minimum-32-chars!!"
+
+[audio]
+opus_bitrate = 24000
+frame_duration_ms = 20
+max_channels_per_group = 50
+max_talk_duration_secs = 60

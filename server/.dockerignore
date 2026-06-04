@@ -1,0 +1,4 @@
+target/
+!target/release/openptt-server
+.git/
+android/

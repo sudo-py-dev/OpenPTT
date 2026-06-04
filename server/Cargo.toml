@@ -1,0 +1,71 @@
+[package]
+name = "openptt-server"
+version = "0.1.0"
+edition = "2021"
+authors = ["Eliezer K. -sudo-py-dev"]
+description = "High-performance Push-to-Talk server"
+license = "MIT"
+repository = "https://github.com/sudo-py-dev/OpenPTT"
+
+[dependencies]
+# Async runtime
+tokio = { version = "1", features = ["full"] }
+
+# Web framework
+axum = { version = "0.8", features = ["ws", "macros"] }
+axum-extra = { version = "0.10", features = ["typed-header"] }
+tower = { version = "0.5", features = ["limit", "timeout"] }
+tower-http = { version = "0.6", features = ["cors", "trace", "compression-gzip", "add-extension", "request-id", "util"] }
+tower_governor = "0.8"
+
+# Metrics
+metrics = "0.23"
+metrics-exporter-prometheus = "0.15"
+
+# Serialization
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+
+# Database
+sqlx = { version = "0.8", features = ["runtime-tokio-rustls", "postgres", "uuid", "chrono", "migrate"] }
+
+# Redis
+redis = { version = "0.27", features = ["tokio-comp", "connection-manager"] }
+
+# Auth
+jsonwebtoken = "9"
+argon2 = "0.5"
+
+# Config
+config = "0.14"
+
+# Logging
+tracing = "0.1"
+tracing-subscriber = { version = "0.3", features = ["env-filter", "json"] }
+
+# FCM Push Notifications
+reqwest = { version = "0.12", features = ["json"] }
+yup-oauth2 = "8.3"
+
+# Misc
+uuid = { version = "1", features = ["v4", "serde"] }
+chrono = { version = "0.4", features = ["serde"] }
+thiserror = "2"
+anyhow = "1"
+rand = "0.8"
+base64 = "0.22"
+validator = { version = "0.19", features = ["derive"] }
+bytes = "1"
+futures = "0.3"
+hyper = "0.14"
+hyper-rustls = "0.24"
+
+[dev-dependencies]
+reqwest = { version = "0.12", features = ["json"] }
+tokio-tungstenite = "0.26"
+
+[profile.release]
+opt-level = 3
+lto = "thin"
+codegen-units = 1
+strip = true

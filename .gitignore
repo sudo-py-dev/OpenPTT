@@ -11,7 +11,8 @@ android/local.properties
 android/*.iml
 android/.idea/
 android/captures/
-
+google-services.json
+firebase*
 # IDE
 .idea/
 .vscode/
